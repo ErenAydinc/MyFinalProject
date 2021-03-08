@@ -2,6 +2,7 @@
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -26,6 +27,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpGet("getall")]
+        [Authorize(Roles = "product.list")]
         public IActionResult GetAll()
         {
             //Dependency chain ---
